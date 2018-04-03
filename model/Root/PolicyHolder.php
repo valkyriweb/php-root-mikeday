@@ -6,7 +6,7 @@
      * Time: 20:21
      */
     
-    class PolicyHolder {
+    class PolicyHolder implements CurlRequest {
         public $id = [], $firstName, $lastName, $email, $company, $policyholderId, $createdAt, $createdBy;
     
         /**
@@ -35,21 +35,31 @@
     
     
         public function createRequest($curl) {
+            /*
+             * Options 1
+             */
+            
+//            $postFields = "{\n\t\"id\": {\n\t\t\"type\": \"$this->id['type']\",\n\t\t\"number\": \"$this->id['number']\",\n\t\t\"country\": \"$this->id['country']\"\n\t},\n\t\"first_name\": \"$this->firstName\",\n\t\"last_name\": \"$this->lastName\",\n\t\"email\": \"$this->lastName\"\n}"
+            
+            /*
+             * Option 2:
+             */
             $postArray = [
                 "id" => [
-                    "type"      => "id",
-                    "number"    => "6801015800084",
-                    "country"   => "ZA"
+                    "type"      => "$this->id['type']",
+                    "number"    => "$this->id['number']",
+                    "country"   => "$this->id['country']"
                  ],
-                "first_name"  => "Erlich",
-                "last_name"   => "Bachman",
-                "email"       => "erlich@avaito.com",
+                "first_name"  => "$this->firstName",
+                "last_name"   => "$this->lastName",
+                "email"       => "$this->lastName",
                 "app_data" => [
-                  "company"   => "Aviato"
+                  "company"   => "$this->company"
                 ]
             ];
-            
             $postFields = json_encode($postArray);
+            
+            
             return createCurl($curl, "policyholders", $postFields);
             //TODO: figure out the forbidden error. Issue 1
         }

@@ -1,9 +1,6 @@
 <?php
 
-
-
-
-class Quote {
+class Quote implements CurlRequest {
     public $type, $modelName;
 
     public function __construct($modelName, $type = "root_gadgets"){
@@ -13,7 +10,6 @@ class Quote {
     
     public function createRequest($curl) {
         $postFields = "{\n\t\"type\": \"" . $this->type . "\",\n\t\"model_name\": \"" . $this->modelName . "\"\n}";
-        var_dump($postFields);
         return createCurl($curl, "quotes", $postFields);
     }
 }

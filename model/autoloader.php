@@ -8,9 +8,14 @@
     
     require_once('environmentVariables.php');
     
-    //root models.
-    require_once ('Root/Quote.php');
+    //root models
+    // interfaces
+    require_once ('Root/CurlRequest.php');
+    // classes
+    require_once ('Root/Application.php');
     require_once ('Root/PolicyHolder.php');
+    require_once ('Root/Policy.php');
+    require_once ('Root/Quote.php');
     
     
     //chat models
