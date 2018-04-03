@@ -1,5 +1,4 @@
 <?php
-
 require_once('model/Quote.php');
 
 $myQuote = new Quote("iPhone 5");
@@ -8,11 +7,15 @@ echo "<pre>";
 print_r($thisQuote);
 echo "</pre>";
 
-$response = $myQuote->createRequest();
+$curl = curl_init();
+$curl = $myQuote->createRequest($curl);
+$response = curl_exec($curl);
+$err = curl_error($curl);
 
-try {
-    $response = $request->send();
-    echo $response->getBody();
-} catch (HttpException $ex) {
-    echo $ex;
+curl_close($curl);
+
+if ($err) {
+    echo "cURL Error #:" . $err;
+} else {
+    echo $response;
 }

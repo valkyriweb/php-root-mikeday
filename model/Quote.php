@@ -37,22 +37,23 @@ class Quote extends Authorization {
         ];
     }
     
-    public function createRequest() {
-        $request = new HttpRequest();
-        $request->setUrl('https://sandbox.root.co.za/v1/insurance/quotes');
-        $request->setMethod(HTTP_METH_POST);
-    
-        $request->setHeaders(array(
-//            'Postman-Token' => '396500b4-20be-40bc-94f8-f35ed15aef89',
-//            'Cache-Control' => 'no-cache',
-            'Authorization' => 'Basic ' . base64_encode(Authorization::$sandbox),
-            'Content-Type' => 'application/json'
+    public function createRequest($curl) {
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://sandbox.root.co.za/v1/insurance/quotes",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "{\n\t\"type\": \"" . $this->type ."\",\n\t\"model_name\": \"". $this->modelName . "\"\n}",
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: Basic " . base64_encode(Authorization::$sandbox),
+                "Cache-Control: no-cache",
+//                "Postman-Token: ca2240cc-19d1-43ac-b652-1c30715fca18",
+                "Content-Type: application/json"
+            ),
         ));
-    
-        $request->setBody('{
-            "type": "root_gadgets",
-            "model_name": "iPhone 5"
-        }');
-        return $request;
+        return $curl;
     }
 }
