@@ -8,7 +8,7 @@
     
     class Authorization {
         /** Please enter your Sandbox Variable here.
-         * @var string $sandbox looks like sandbox_SADFASDFASF...
+         * @var string $sandbox
          */
-        public static $sandbox = "enter-sandbox-key";
+        public static $sandbox = "sandbox_YWY2NjVlMTItMGRjZi00YmYyLWE5NDAtYzYzYjZiMzkzYmJhLm9Lb1NSU3p3RGhROTEzcEhzNHQ1V1c1SW5mXzU3YzA1";
     }

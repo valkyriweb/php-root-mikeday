@@ -1,9 +1,6 @@
 <?php
     /**
-     * Created by PhpStorm.
-     * User: Temporary
-     * Date: 2018/04/03
-     * Time: 20:12
+     * The idea behind this class is to contain the details of the chat is to be replied to as policyholder != person chatting.
      */
     
     class ClientChat {
