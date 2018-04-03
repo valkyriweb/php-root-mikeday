@@ -1,7 +1,9 @@
 # php-root-mikeday
 Apologies for the description, Luke was annoyed when he set up the repo.
 <br>
-##Installation
+
+## Installation
+
 1. Run 
 `git clone https://github.com/valkyriweb/php-root-mikeday`
 <br>
