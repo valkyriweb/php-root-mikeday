@@ -6,8 +6,9 @@ Apologies for the description, Luke was annoyed when he set up the repo.
 `git clone https://github.com/valkyriweb/php-root-mikeday`
 <br>
 2. Add details to model/environmentVariables.php:
-    ```php
-    <?php
+
+```php
+<?php
         
         class Authorization {
             /** Please enter your Sandbox Variable here.
@@ -15,5 +16,5 @@ Apologies for the description, Luke was annoyed when he set up the repo.
              */
             public static $sandbox = "sandbox_YWY2NjVlMTItMGRjZi00YmYyLWE5NDAtYzYzYjZiM.........................";
         }
-    ```
+```
 3. Do your own thing.
